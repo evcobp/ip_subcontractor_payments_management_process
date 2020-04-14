@@ -2,4 +2,13 @@ function onOpen() {
   var spreadsheet = SpreadsheetApp.getActive();
   var sheet = spreadsheet.getSheetByName('Payments_Form');
   var clearForm = sheet.getRange('G2').clearContent();
+    
+  var ss = SpreadsheetApp.openById('1cQxDQoXi1Vm-x1EAXo3ZlrwWCz1a7kElZCBsLVXHdJg');
+  var dataRange = ss.getSheetByName('Subcontractors').getDataRange();
+  var values = dataRange.getValues();
+  var lastRow = dataRange.getLastRow();
+
+  var subSheet = spreadsheet.getSheetByName('Subcontractors');
+  var range = subSheet.getRange(1,1,lastRow,4);
+  var setValues = range.setValues(values);
 }
