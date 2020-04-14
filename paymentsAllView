@@ -1,0 +1,44 @@
+function paymentsAllView() {
+  var ss = SpreadsheetApp.getActive(); 
+  var sheet = ss.getSheetByName('Payments_All_View');
+  var range = sheet.getRange('A1:P');
+  var startCell = range.getCell(2,1);
+  var rowIndex = startCell.getRow();
+  
+  var results = range.getCell(rowIndex,1).getValue();
+  
+  var notes = range.getCell(rowIndex,2).getValue();
+  
+  var fieldManager = range.getCell(rowIndex,5).getValue();
+  
+  var jobNumber = range.getCell(rowIndex,6).getValue();
+  
+  var jobName = range.getCell(rowIndex,7).getValue();
+  
+  var company = range.getCell(rowIndex,8).getValue();
+  
+  var reqDate = range.getCell(rowIndex,11).getValue();
+  
+  var workOneReq = range.getCell(rowIndex,14).getValue();
+ 
+  var workOneArea = range.getCell(rowIndex,15).getValue();
+  
+  var workOneAmount = range.getCell(rowIndex,16).getValue();
+ 
+  var workOneComplete = range.getCell(rowIndex,17).getValue();
+   
+  var formSheet = ss.getSheetByName('Payments_Form');
+  var rowIdCell = formSheet.getRange('B1').setValue(rowIndex);
+  var resultsCell = formSheet.getRange('D1').setValue(results);
+  var notesCell = formSheet.getRange('D2').setValue(notes);
+  var fmCell = formSheet.getRange('B2').setValue(fieldManager);
+  var jnCell = formSheet.getRange('B3').setValue(jobNumber);
+  var jnaCell = formSheet.getRange('B4').setValue(jobName);
+  var comCell = formSheet.getRange('B5').setValue(company);
+  var reqCell = formSheet.getRange('B6').setValue(reqDate);
+  var workOneReqCell = formSheet.getRange('B8').setValue(workOneReq);
+  var workOneAreaCell = formSheet.getRange('B9').setValue(workOneArea);
+  var workOneAmountCell = formSheet.getRange('B10').setValue(workOneAmount);
+  var workOneCompleteCell = formSheet.getRange('B11').setValue(workOneComplete);
+  
+}
