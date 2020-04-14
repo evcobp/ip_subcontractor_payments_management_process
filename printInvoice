@@ -1,0 +1,56 @@
+function printInvoice() {
+  var ss = SpreadsheetApp.getActive();
+  var sheet = ss.getSheetByName('Payments_Form');
+  var cell = SpreadsheetApp.getCurrentCell().getValue();
+  var rowNumber = sheet.getRange('B1').getValue();
+  var row = rowNumber;
+  var date = new Date();
+
+  var sheetTwo = ss.getSheetByName('PaymentReceipt').activate();
+  var range = sheetTwo.getRange(row,1,1,9);
+  var cellOne = range.offset(0,1);
+  var cellOneValue = cellOne.getValue();
+  var jobNumber = cellOneValue;
+  var cellTwo = range.offset(0,2);
+  var cellTwoValue = cellTwo.getValue();
+  var jobName = cellTwoValue;
+  var cellThree = range.offset(0,3);
+  var cellThreeValue = cellThree.getValue();
+  var invoiceNum = cellThreeValue;
+  var cellFour = range.offset(0,4);
+  var cellFourValue = cellFour.getValue();
+  var subName = cellFourValue;
+  var cellFive = range.offset(0,5);
+  var cellFiveValue = cellFive.getValue();
+  var workOne = cellFiveValue;
+  var cellSix = range.offset(0,6);
+  var cellSixValue = cellSix.getValue();
+  var paymentAmount = cellSixValue;
+      //Make a copy of the template file
+  var documentId = DriveApp.getFileById('1-BABQFhaJ0c1akq97NKs4vgMZl32MCb_2Tqc5tmJQO8').makeCopy().getId();
+
+    //Rename the copied file
+    DriveApp.getFileById(documentId).setName('Subcontractor Payment Receipt - ' + (subName) + " " + "#" + (jobNumber) + " " + (jobName) + " " + '- Invoice #' + (invoiceNum));
+  
+  var body = DocumentApp.openById(documentId).getBody();
+  var text = body.editAsText();
+
+  var receiptDate = range.offset(0,0);
+  var receiptDateValue = receiptDate.getValue();
+  Logger.log(receiptDateValue)
+  var formatReceiptDateValue = Utilities.formatDate(receiptDateValue, "EST", "MM-dd-yyyy");
+   body.replaceText('{Payment Date}',formatReceiptDateValue);
+  var jobNumberDoc = jobNumber;
+   body.replaceText('{Job Number}',jobNumberDoc);
+  var jobNameDoc = jobName;
+   body.replaceText('{Job Name}',jobNameDoc);
+  var subNameDoc = subName;
+   body.replaceText('{Company}',subNameDoc);
+  var invoiceNumDoc = invoiceNum;
+   body.replaceText('{Invoice}',invoiceNumDoc);
+  var workOneDoc = workOne;
+   body.replaceText('{Work Request}',workOneDoc);
+  var paymentAmountDoc = paymentAmount;
+   body.replaceText('{Payment Amount}',paymentAmountDoc);
+   
+}
