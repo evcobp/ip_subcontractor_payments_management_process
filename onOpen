@@ -1,0 +1,5 @@
+function onOpen() {
+  var spreadsheet = SpreadsheetApp.getActive();
+  var sheet = spreadsheet.getSheetByName('Payments_Form');
+  var clearForm = sheet.getRange('G2').clearContent();
+}
