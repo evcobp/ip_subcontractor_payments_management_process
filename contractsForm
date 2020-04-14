@@ -1,0 +1,23 @@
+function contractsForm() {
+  var ss = SpreadsheetApp.getActive();
+  var cell = ss.getCurrentCell().getValue();
+  var sheet = ss.getSheetByName('Contracts_Form');
+  
+  var sheetTwo = ss.getSheetByName('Contracts_Log');
+  
+  var jobNum = sheet.getRange('B3').getValue();
+  var jobName = sheet.getRange('B4').getValue();
+  var fieldManager = sheet.getRange('B5').getValue();
+  var subName = sheet.getRange('B7').getValue();
+  var intContract = sheet.getRange('B8').getValue();
+  var extContract = sheet.getRange('B9').getValue();
+  var extras = sheet.getRange('B10').getValue();
+  var notes = sheet.getRange('B11').getValue();
+  
+  var range = sheet.getRange('B3:B11');
+  
+  var rowContents = ([jobNum,jobName,fieldManager,subName,intContract,extContract,extras,notes]);
+  sheetTwo.appendRow(rowContents);
+  
+  var clear = range.clearContent();
+}
