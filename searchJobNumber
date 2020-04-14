@@ -1,0 +1,10 @@
+function searchJobNumber() {
+  var ui = SpreadsheetApp.getUi();
+  var response = ui.prompt('Job Number', ui.ButtonSet.OK_CANCEL);
+  if (response.getSelectedButton() == ui.Button.OK) {
+    var spreadsheet = SpreadsheetApp.getActive();
+    var searchSheet = spreadsheet.getSheetByName('ContractedJobIDandNameUtility_Test'); 
+    var setJobNumber = searchSheet.getRange('F1').setValue(response.getResponseText()); 
+  };
+  return openUrl();
+}
