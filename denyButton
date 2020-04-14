@@ -1,0 +1,19 @@
+function denyButton() {
+  var ss = SpreadsheetApp.getActive();
+  var sheet = ss.getSheetByName('Payments_Form');
+  var sheetUtility = ss.getSheetByName('Payments_Result_Log');
+  var result = "Denied";
+  var notes = sheet.getRange('D2').getValue();
+  var rowNumber = sheet.getRange('B1').getValue();
+  
+  var outcome = sheet.getRange('D1:D2');
+  outcome.copyValuesToRange(sheetUtility,1,2,1,1);
+  var jobDetails = sheet.getRange('B2:B6');
+  jobDetails.copyValuesToRange(sheetUtility,3,7,2,2);
+  var workOne = sheet.getRange('B8:B11');
+  
+  var rangeList = [(outcome),(jobDetails),(workOne)];
+  rangeList[0].getValues();
+  rangeList[1].getValues();
+  rangeList[2].getValues(); 
+}
