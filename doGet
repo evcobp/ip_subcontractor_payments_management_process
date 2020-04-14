@@ -1,0 +1,164 @@
+function doGet(e) {
+  var spreadsheet = SpreadsheetApp.getActive();
+  var searchSheet = spreadsheet.getSheetByName('ContractedJobIDandNameUtility_Test');
+  var getJobNumber = searchSheet.getRange('F1');
+  var setFileId = getJobNumber.offset(0,1).getValue();
+  
+  var jobNumberRange = searchSheet.getRange('A2:A');
+  var jobNumberRangeFormat = jobNumberRange.setNumberFormat('0');
+  var jobNumberLastRow = jobNumberRange.getLastRow();
+  var jobNumberRangeDestination = jobNumberRange.copyValuesToRange(searchSheet,3,3,2,jobNumberLastRow);
+  
+  var fileIdRange = searchSheet.getRange('B2:B');
+  var fileIdLastRow = fileIdRange.getLastRow();
+  var fileIdRangeDestination = fileIdRange.copyValuesToRange(searchSheet,4,4,2,fileIdLastRow);
+  var nextFileIdRange = searchSheet.getRange('C2:C').setNumberFormat('0');
+  
+  var ss = SpreadsheetApp.openById(setFileId);
+  var sheet = ss.getSheetByName('Subcontractor_Balance');
+  var dataRange = sheet.getDataRange();
+
+  let subOne = {
+    subcontractor: sheet.getRange('A2').getDisplayValue(),
+    intContractAmount: sheet.getRange('B2').getDisplayValue(),
+    intContractPaid: sheet.getRange('C2').getDisplayValue(),
+    intContractBalance: sheet.getRange('D2').getDisplayValue(),
+    extContractAmount: sheet.getRange('E2').getDisplayValue(),
+    extContractPaid: sheet.getRange('F2').getDisplayValue(),
+    extContractBalance: sheet.getRange('G2').getDisplayValue(),
+    extrasPaid: sheet.getRange('H2').getDisplayValue()
+               }; 
+  
+  let subTwo = {
+    subcontractor: sheet.getRange('A3').getDisplayValue(),
+    intContractAmount: sheet.getRange('B3').getDisplayValue(),
+    intContractPaid: sheet.getRange('C3').getDisplayValue(),
+    intContractBalance: sheet.getRange('D3').getDisplayValue(),
+    extContractAmount: sheet.getRange('E3').getDisplayValue(),
+    extContractPaid: sheet.getRange('F3').getDisplayValue(),
+    extContractBalance: sheet.getRange('G3').getDisplayValue(),
+    extrasPaid: sheet.getRange('H3').getDisplayValue()
+               };
+  
+  let subThree = {
+    subcontractor: sheet.getRange('A4').getDisplayValue(),
+    intContractAmount: sheet.getRange('B4').getDisplayValue(),
+    intContractPaid: sheet.getRange('C4').getDisplayValue(),
+    intContractBalance: sheet.getRange('D4').getDisplayValue(),
+    extContractAmount: sheet.getRange('E4').getDisplayValue(),
+    extContractPaid: sheet.getRange('F4').getDisplayValue(),
+    extContractBalance: sheet.getRange('G4').getDisplayValue(),
+    extrasPaid: sheet.getRange('H4').getDisplayValue()
+                 };
+  
+  let subFour = {
+    subcontractor: sheet.getRange('A5').getDisplayValue(),
+    intContractAmount: sheet.getRange('B5').getDisplayValue(),
+    intContractPaid: sheet.getRange('C5').getDisplayValue(),
+    intContractBalance: sheet.getRange('D5').getDisplayValue(),
+    extContractAmount: sheet.getRange('E5').getDisplayValue(),
+    extContractPaid: sheet.getRange('F5').getDisplayValue(),
+    extContractBalance: sheet.getRange('G5').getDisplayValue(),
+    extrasPaid: sheet.getRange('H5').getDisplayValue()
+                };
+  
+  let subFive = {
+    subcontractor: sheet.getRange('A6').getDisplayValue(),
+    intContractAmount: sheet.getRange('B6').getDisplayValue(),
+    intContractPaid: sheet.getRange('C6').getDisplayValue(),
+    intContractBalance: sheet.getRange('D6').getDisplayValue(),
+    extContractAmount: sheet.getRange('E6').getDisplayValue(),
+    extContractPaid: sheet.getRange('F6').getDisplayValue(),
+    extContractBalance: sheet.getRange('G6').getDisplayValue(),
+    extrasPaid: sheet.getRange('H2').getDisplayValue()
+                };
+  
+  let subSix = {
+    subcontractor: sheet.getRange('A7').getDisplayValue(),
+    intContractAmount: sheet.getRange('B7').getDisplayValue(),
+    intContractPaid: sheet.getRange('C7').getDisplayValue(),
+    intContractBalance: sheet.getRange('D7').getDisplayValue(),
+    extContractAmount: sheet.getRange('E7').getDisplayValue(),
+    extContractPaid: sheet.getRange('F7').getDisplayValue(),
+    extContractBalance: sheet.getRange('G7').getDisplayValue(),
+    extrasPaid: sheet.getRange('H7').getDisplayValue()
+               };
+  
+  let subSeven = {
+    subcontractor: sheet.getRange('A8').getDisplayValue(),
+    intContractAmount: sheet.getRange('B8').getDisplayValue(),
+    intContractPaid: sheet.getRange('C8').getDisplayValue(),
+    intContractBalance: sheet.getRange('D8').getDisplayValue(),
+    extContractAmount: sheet.getRange('E8').getDisplayValue(),
+    extContractPaid: sheet.getRange('F8').getDisplayValue(),
+    extContractBalance: sheet.getRange('G8').getDisplayValue(),
+    extrasPaid: sheet.getRange('H8').getDisplayValue()
+                 };
+  
+  let subEight = {
+    subcontractor: sheet.getRange('A9').getDisplayValue(),
+    intContractAmount: sheet.getRange('B9').getDisplayValue(),
+    intContractPaid: sheet.getRange('C9').getDisplayValue(),
+    intContractBalance: sheet.getRange('D9').getDisplayValue(),
+    extContractAmount: sheet.getRange('E9').getDisplayValue(),
+    extContractPaid: sheet.getRange('F9').getDisplayValue(),
+    extContractBalance: sheet.getRange('G9').getDisplayValue(),
+    extrasPaid: sheet.getRange('H9').getDisplayValue()
+                 };
+  
+  let subNine = {
+    subcontractor: sheet.getRange('A10').getDisplayValue(),
+    intContractAmount: sheet.getRange('B10').getDisplayValue(),
+    intContractPaid: sheet.getRange('C10').getDisplayValue(),
+    intContractBalance: sheet.getRange('D10').getDisplayValue(),
+    extContractAmount: sheet.getRange('E10').getDisplayValue(),
+    extContractPaid: sheet.getRange('F10').getDisplayValue(),
+    extContractBalance: sheet.getRange('G10').getDisplayValue(),
+    extrasPaid: sheet.getRange('H10').getDisplayValue()
+                };
+  
+  let subTen = {
+    subcontractor: sheet.getRange('A11').getDisplayValue(),
+    intContractAmount: sheet.getRange('B11').getDisplayValue(),
+    intContractPaid: sheet.getRange('C11').getDisplayValue(),
+    intContractBalance: sheet.getRange('D11').getDisplayValue(),
+    extContractAmount: sheet.getRange('E11').getDisplayValue(),
+    extContractPaid: sheet.getRange('F11').getDisplayValue(),
+    extContractBalance: sheet.getRange('G11').getDisplayValue(),
+    extrasPaid: sheet.getRange('H11').getDisplayValue()
+               };
+    
+  var data = Charts.newDataTable()
+    .addColumn(Charts.ColumnType.STRING, 'Subcontractor')
+    .addColumn(Charts.ColumnType.STRING, 'Interior Contract Amount')
+    .addColumn(Charts.ColumnType.STRING, 'Interior Paid Amount')
+    .addColumn(Charts.ColumnType.STRING, 'Interior Contract Balance')
+    .addColumn(Charts.ColumnType.STRING, 'Exterior Contract Amount')
+    .addColumn(Charts.ColumnType.STRING, 'Exterior Paid Amount')
+    .addColumn(Charts.ColumnType.STRING, 'Exterior Contract Balance')
+    .addColumn(Charts.ColumnType.STRING, 'Extras Paid')
+    .addRow([subOne.subcontractor, subOne.intContractAmount, subOne.intContractPaid, subOne.intContractBalance, subOne.extContractAmount, subOne.extContractPaid, subOne.extContractBalance, subOne.extrasPaid])
+    .addRow([subTwo.subcontractor, subTwo.intContractAmount, subTwo.intContractPaid, subTwo.intContractBalance, subTwo.extContractAmount, subTwo.extContractPaid, subTwo.extContractBalance, subTwo.extrasPaid])
+    .addRow([subThree.subcontractor, subThree.intContractAmount, subThree.intContractPaid, subThree.intContractBalance, subThree.extContractAmount, subThree.extContractPaid, subThree.extContractBalance, subThree.extrasPaid])
+    .addRow([subFour.subcontractor, subFour.intContractAmount, subFour.intContractPaid, subFour.intContractBalance, subFour.extContractAmount, subFour.extContractPaid, subFour.extContractBalance, subFour.extrasPaid])
+    .addRow([subFive.subcontractor, subFive.intContractAmount, subFive.intContractPaid, subFive.intContractBalance, subFive.extContractAmount, subFive.extContractPaid, subFive.extContractBalance, subFive.extrasPaid])
+    .addRow([subSix.subcontractor, subSix.intContractAmount, subSix.intContractPaid, subSix.intContractBalance, subSix.extContractAmount, subSix.extContractPaid, subSix.extContractBalance, subSix.extrasPaid])
+    .addRow([subSeven.subcontractor, subSeven.intContractAmount, subSeven.intContractPaid, subSeven.intContractBalance, subSeven.extContractAmount, subSeven.extContractPaid, subSeven.extContractBalance, subSeven.extrasPaid])
+    .addRow([subEight.subcontractor, subEight.intContractAmount, subEight.intContractPaid, subEight.intContractBalance, subEight.extContractAmount, subEight.extContractPaid, subEight.extContractBalance, subEight.extrasPaid])
+    .addRow([subNine.subcontractor, subNine.intContractAmount, subNine.intContractPaid, subNine.intContractBalance, subNine.extContractAmount, subNine.extContractPaid, subNine.extContractBalance, subNine.extrasPaid])
+    .addRow([subTen.subcontractor, subTen.intContractAmount, subTen.intContractPaid, subTen.intContractBalance, subTen.extContractAmount, subTen.extContractPaid, subTen.extContractBalance, subTen.extrasPaid])
+    .build();
+  
+  var chartBuilder = Charts.newTableChart()
+    .setDimensions(1250, 850)
+    .enableSorting(true)
+    .setDataTable(data);
+  
+  var chart = chartBuilder.build();
+  
+  var htmlOutput = HtmlService.createHtmlOutput().setTitle('Subcontractor Contractor Details');
+  var imageData = Utilities.base64Encode(chart.getAs('image/png').getBytes());
+  var imageUrl = "data:image/png;base64," + encodeURI(imageData);
+    htmlOutput.append("<img border=\"1\" src=\"" + imageUrl + "\">");
+    return htmlOutput;
+}
