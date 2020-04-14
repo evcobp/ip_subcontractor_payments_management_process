@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <title>Subcontractor Contractor Review</title>
+  </head>
+  <body>
+    <form>
+          <select id="jobNumber"><br><br>
+          <option disabled selected value> -- select -- </option>
+          <? var data = google.script.run.getData(); ?>
+          </select>
+          <input type="button" id="jobNumberButton" value="Review" /><br><br>
+          
+          <label for="JobName">Job Name:</label><br>
+          <input type="text" id="jobName" name="JobName"><br><br>
+ 
+          <label for="FieldManager">Field Manager:</label><br>
+          <input type="text" id="fieldManager" name="FieldManager"><br><br>
+          
+          <label for="Subcontractors">Subcontractor:</label><br>
+          <select id="subcontractors" name="Subcontractors"><br>
+            <option value="subOne">Subcontractor 1</option>
+            <option value="subTwo">Subcontractor 2</option>
+          </select><br><br>
+          
+          <label for="SubcontractorEstimate">Subcontractor Estimate:</label><br>
+          <input type="text" id="subcontractorEstimate" name="SubcontractorEstimate"><br><br>
+    
+      <fieldset>
+        <legend><b>Interior Contract Details:</b></legend>
+          <label for="InteriorContract">Interior $ Contract:</label><br>
+          <input type="text" id="interiorContract" name="InteriorContract" value="5000"><br>
+          <label for="InteriorContractPaid">Interior $ Paid:</label><br>
+          <input type="text" id="interiorContractPaid" name="InteriorContractPaid" value="1000"><br>
+          <label for="InteriorContractBalance">Interior $ Balance:</label><br>
+          <input type="text" id="interiorContractBalance" name="InteriorContractBalance" value="4000"><br>
+          <label for="InteriorPercentagePaid">Interior % Paid:</label><br>
+          <input type="text" id="interiorPercentagePaid" name="InteriorPercentagePaid" value="InteriorContractBalance/InteriorContractAmount"><br>
+      </fieldset><br>
+      
+      <fieldset>
+        <legend><b>Exterior Contract Details:</b></legend>
+          <label for="ExteriorContract">Exterior $ Contract:</label><br>
+          <input type="text" id="exteriorContract" name="ExteriorContract"><br>
+          <label for="ExteriorContractPaid">Exterior $ Paid:</label><br>
+          <input type="text" id="exteriorContractPaid" name="ExteriorContractPaid"><br>
+          <label for="ExteriorContractBalance">Exterior $ Balance:</label><br>
+          <input type="text" id="exteriorContractBalance" name="ExteriorContractBalance"><br>
+          <label for="ExteriorPercentagePaid">Exterior % Paid:</label><br>
+          <input type="text" id="exteriorPercentagePaid" name="ExteriorPercentagePaid" value="ExteriorContractBalance/ExteriorContractAmount"><br>
+      </fieldset><br>
+    </form>
+    <?
+      document.querySelector('#jobNumberButton').addEventListener("click", function () {
+        var job = document.getElementById("jobNumber").value;
+        var data = google.script.run.withSuccessHandler(function (data) {
+          document.querySelector("#jobName").innerHTML = data.jobName;
+          document.querySelector("#fieldManager").innerHTML = data.fieldManager;
+          document.querySelector("#subcontractors").innerHTML = data.subcontractors;
+          document.querySelector("#subcontractorEstimate").innerHTML = data.subcontractorEstimate;
+          document.querySelector("#interiorContract").innerHTML = data.interiorContract;
+        }).getData(job);
+      });
+    ?>
+  </body>
+</html>
