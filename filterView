@@ -1,0 +1,34 @@
+function filterView() {
+  var spreadsheet = SpreadsheetApp.getActive();
+  var sheet = spreadsheet.getSheetByName('Payments_Form');
+  var rangeList = sheet.getRangeList(['B1:B6', 'B8:B11', 'B13:B16', 'B18:B21', 'B23:B26', 'B28:B31', 'D1', 'D2']);
+  rangeList.clearContent();
+  var filterCell = sheet.getRange('G2');
+  var filterValue = filterCell.getValue();
+  
+  switch(filterValue) {
+    case 'All':
+      var viewAll = spreadsheet.getSheetByName('Payments_All_View');
+      SpreadsheetApp.getUi().alert('Viewing All Payment Requests');
+      paymentsAllView();
+      break;
+    case 'Approved':
+      var viewApproved = spreadsheet.getSheetByName('Payments_Approved_View');
+      SpreadsheetApp.getUi().alert('Viewing Approved Payment Requests');
+      paymentsApprovedView();
+      break;
+    case 'Denied':
+      var viewDenied = spreadsheet.getSheetByName('Payments_Denied_View');
+      SpreadsheetApp.getUi().alert('Viewing Denied Payment Requests');
+      paymentsDeniedView();
+      break;
+    case 'Pending':
+      var viewPending = spreadsheet.getSheetByName('Payments_Pending_View');
+      SpreadsheetApp.getUi().alert('Viewing Pending Payment Requests');
+      paymentsPendingView();
+      break;
+    default:
+      SpreadsheetApp.getUi().alert('Please select a Payment Type to View');
+  }
+  
+}
