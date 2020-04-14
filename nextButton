@@ -1,0 +1,152 @@
+function nextButton() {
+  var spreadsheet = SpreadsheetApp.getActive();
+  var formSheet = spreadsheet.getSheetByName('Payments_Form');
+  var rowNumber = formSheet.getRange('B1').getValue();
+  var filterValue = formSheet.getRange('G2').getValue();
+  var paymentsViewAll = spreadsheet.getSheetByName('Payments_All_View');
+  var paymentsViewApproved = spreadsheet.getSheetByName('Payments_Approved_View');
+  var paymentsViewDenied = spreadsheet.getSheetByName('Payments_Denied_View');
+  var paymentsViewPending = spreadsheet.getSheetByName('Payments_Pending_View');
+  var a = 'All';
+  var b = 'Approved';
+  var c = 'Denied';
+  var d = 'Pending';
+  
+  switch(filterValue) {
+    case a:
+      paymentsViewAll;
+      
+      var next = ++rowNumber;
+      var nextView = paymentsViewAll.getRange(next,17,1,17);
+      var newRowNumber = formSheet.getRange('B1').setValue(next);
+      var newRecord = newRowNumber.getValue();
+  
+      var results = paymentsViewAll.getRange(newRecord,1).getValue();
+      var notes = paymentsViewAll.getRange(newRecord,2).getValue();
+      var fieldManager = paymentsViewAll.getRange(newRecord,5).getValue();
+      var jobNumber = paymentsViewAll.getRange(newRecord,6).getValue();
+      var jobName = paymentsViewAll.getRange(newRecord,7).getValue();
+      var company = paymentsViewAll.getRange(newRecord,8).getValue();
+      var reqDate = paymentsViewAll.getRange(newRecord,11).getValue();
+      var workOneReq = paymentsViewAll.getRange(newRecord,14).getValue();
+      var workOneArea = paymentsViewAll.getRange(newRecord,15).getValue();
+      var workOneAmount = paymentsViewAll.getRange(newRecord,16).getValue();
+      var workOneComplete = paymentsViewAll.getRange(newRecord,17).getValue();
+     
+      var resultsCell = formSheet.getRange('D1').setValue(results);
+      var notesCell = formSheet.getRange('D2').setValue(notes);
+      var fmCell = formSheet.getRange('B2').setValue(fieldManager);
+      var jnCell = formSheet.getRange('B3').setValue(jobNumber);
+      var jnaCell = formSheet.getRange('B4').setValue(jobName);
+      var comCell = formSheet.getRange('B5').setValue(company);
+      var reqCell = formSheet.getRange('B6').setValue(reqDate);
+      var workOneReqCell = formSheet.getRange('B8').setValue(workOneReq);
+      var workOneAreaCell = formSheet.getRange('B9').setValue(workOneArea);
+      var workOneAmountCell = formSheet.getRange('B10').setValue(workOneAmount);
+      var workOneCompleteCell = formSheet.getRange('B11').setValue(workOneComplete);
+      break;
+      
+    case b:
+      paymentsViewApproved;
+      
+      var next = ++rowNumber;
+      var nextView = paymentsViewApproved.getRange(next,17,1,17);
+      var newRowNumber = formSheet.getRange('B1').setValue(next);
+      var newRecord = newRowNumber.getValue();
+  
+      var results = paymentsViewApproved.getRange(newRecord,1).getValue();
+      var notes = paymentsViewApproved.getRange(newRecord,2).getValue();
+      var fieldManager = paymentsViewApproved.getRange(newRecord,5).getValue();
+      var jobNumber = paymentsViewApproved.getRange(newRecord,6).getValue();
+      var jobName = paymentsViewApproved.getRange(newRecord,7).getValue();
+      var company = paymentsViewApproved.getRange(newRecord,8).getValue();
+      var reqDate = paymentsViewApproved.getRange(newRecord,11).getValue();
+      var workOneReq = paymentsViewApproved.getRange(newRecord,14).getValue();
+      var workOneArea = paymentsViewApproved.getRange(newRecord,15).getValue();
+      var workOneAmount = paymentsViewApproved.getRange(newRecord,16).getValue();
+      var workOneComplete = paymentsViewApproved.getRange(newRecord,17).getValue();
+      
+      var resultsCell = formSheet.getRange('D1').setValue(results);
+      var notesCell = formSheet.getRange('D2').setValue(notes);
+      var fmCell = formSheet.getRange('B2').setValue(fieldManager);
+      var jnCell = formSheet.getRange('B3').setValue(jobNumber);
+      var jnaCell = formSheet.getRange('B4').setValue(jobName);
+      var comCell = formSheet.getRange('B5').setValue(company);
+      var reqCell = formSheet.getRange('B6').setValue(reqDate);
+      var workOneReqCell = formSheet.getRange('B8').setValue(workOneReq);
+      var workOneAreaCell = formSheet.getRange('B9').setValue(workOneArea);
+      var workOneAmountCell = formSheet.getRange('B10').setValue(workOneAmount);
+      var workOneCompleteCell = formSheet.getRange('B11').setValue(workOneComplete);
+      break;
+      
+    case c:
+      paymentsViewDenied;
+      
+      var next = ++rowNumber;
+      var nextView = paymentsViewDenied.getRange(next,17,1,17);
+      var newRowNumber = formSheet.getRange('B1').setValue(next);
+      var newRecord = newRowNumber.getValue();
+  
+      var results = paymentsViewDenied.getRange(newRecord,1).getValue();     
+      var notes = paymentsViewDenied.getRange(newRecord,2).getValue(); 
+      var fieldManager = paymentsViewDenied.getRange(newRecord,5).getValue();     
+      var jobNumber = paymentsViewDenied.getRange(newRecord,6).getValue();   
+      var jobName = paymentsViewDenied.getRange(newRecord,7).getValue(); 
+      var company = paymentsViewDenied.getRange(newRecord,8).getValue();  
+      var reqDate = paymentsViewDenied.getRange(newRecord,11).getValue();   
+      var workOneReq = paymentsViewDenied.getRange(newRecord,14).getValue(); 
+      var workOneArea = paymentsViewDenied.getRange(newRecord,15).getValue();     
+      var workOneAmount = paymentsViewDenied.getRange(newRecord,16).getValue();   
+      var workOneComplete = paymentsViewDenied.getRange(newRecord,17).getValue();
+    
+      var resultsCell = formSheet.getRange('D1').setValue(results);
+      var notesCell = formSheet.getRange('D2').setValue(notes);
+      var fmCell = formSheet.getRange('B2').setValue(fieldManager);
+      var jnCell = formSheet.getRange('B3').setValue(jobNumber);
+      var jnaCell = formSheet.getRange('B4').setValue(jobName);
+      var comCell = formSheet.getRange('B5').setValue(company);
+      var reqCell = formSheet.getRange('B6').setValue(reqDate);
+      var workOneReqCell = formSheet.getRange('B8').setValue(workOneReq);
+      var workOneAreaCell = formSheet.getRange('B9').setValue(workOneArea);
+      var workOneAmountCell = formSheet.getRange('B10').setValue(workOneAmount);
+      var workOneCompleteCell = formSheet.getRange('B11').setValue(workOneComplete);
+      break;
+      
+    case d:
+      paymentsViewPending;
+      
+      var next = ++rowNumber;
+      var nextView = paymentsViewPending.getRange(next,17,1,17);
+      var newRowNumber = formSheet.getRange('B1').setValue(next);
+      var newRecord = newRowNumber.getValue();
+  
+      var results = paymentsViewPending.getRange(newRecord,1).getValue();      
+      var notes = paymentsViewPending.getRange(newRecord,2).getValue();     
+      var fieldManager = paymentsViewPending.getRange(newRecord,5).getValue();     
+      var jobNumber = paymentsViewPending.getRange(newRecord,6).getValue();   
+      var jobName = paymentsViewPending.getRange(newRecord,7).getValue();    
+      var company = paymentsViewPending.getRange(newRecord,8).getValue();    
+      var reqDate = paymentsViewPending.getRange(newRecord,11).getValue();   
+      var workOneReq = paymentsViewPending.getRange(newRecord,14).getValue(); 
+      var workOneArea = paymentsViewPending.getRange(newRecord,15).getValue();   
+      var workOneAmount = paymentsViewPending.getRange(newRecord,16).getValue();   
+      var workOneComplete = paymentsViewPending.getRange(newRecord,17).getValue();    
+      
+      var resultsCell = formSheet.getRange('D1').setValue(results);
+      var notesCell = formSheet.getRange('D2').setValue(notes);
+      var fmCell = formSheet.getRange('B2').setValue(fieldManager);
+      var jnCell = formSheet.getRange('B3').setValue(jobNumber);
+      var jnaCell = formSheet.getRange('B4').setValue(jobName);
+      var comCell = formSheet.getRange('B5').setValue(company);
+      var reqCell = formSheet.getRange('B6').setValue(reqDate);
+      var workOneReqCell = formSheet.getRange('B8').setValue(workOneReq);
+      var workOneAreaCell = formSheet.getRange('B9').setValue(workOneArea);
+      var workOneAmountCell = formSheet.getRange('B10').setValue(workOneAmount);
+      var workOneCompleteCell = formSheet.getRange('B11').setValue(workOneComplete);
+      break;
+      
+    default:
+      SpreadsheetApp.getUi().alert('Verify if you selected a payment status');
+  }
+  
+}
